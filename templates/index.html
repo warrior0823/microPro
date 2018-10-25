@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index_page.css') }}">
+{% endblock %}
+{% block content %}
+    {% macro listGroup(category, items) %}
+        <div class="list-group">
+            <div class="group-top">
+                <span class="group-title">{{ category }}</span>
+                <a href="#" class="more-btn">更多</a>
+            </div>
+            <div class="any-group">
+                {% for item in items[0:3] %}
+                    <div class="item-group">
+                    <img src="{{ item.thumbnail }}" class="thumbnail" alt="">
+                    <p class="item-title">{{ item.title }}</p>
+                    <p class="item-rating">
+                        {# 确定整星个数 #}
+                        {% set lights = ((item.rating|int)/2)|int %}
+                        {# 确定半个星个数 #}
+                        {% set halfs = ((item.rating|int)%2) %}
+                        {# 灰色星星个数 #}
+                        {% set grays = 5 - lights - halfs %}
+                        {# 渲染高亮星星 #}
+                        {% for light in range(0, lights) %}
+                            <img src="{{ url_for('static', filename='img/rate_light.png') }}">
+                        {% endfor %}
+                        {# 渲染半高亮星星 #}
+                        {% for light in range(0, halfs) %}
+                            <img src="{{ url_for('static', filename='img/rate_half.jpg') }}">
+                        {% endfor %}
+                        {# 渲染灰色星星 #}
+                        {% for light in range(0, grays) %}
+                            <img src="{{ url_for('static', filename='img/rate_gray.png') }}">
+                        {% endfor %}
+
+                        {{ item.rating }}
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endmacro %}
+
+    {# 电影 #}
+    {{ listGroup('电影', movies) }}
+    {# 电视剧 #}
+    {{ listGroup('电视剧', tvs) }}
+{% endblock %}

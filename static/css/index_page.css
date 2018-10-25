@@ -1,0 +1,42 @@
+.list-group{
+    background: #fff;
+    padding: 17px 18px;
+}
+.list-group .group-top{
+    font-size: 18px;
+/* {# 获取浮动元素 #} */
+    overflow: hidden;
+}
+.group-top .group-title{
+    float: left;
+    color: #000;
+}
+.group-top .more-btn{
+    float: right;
+}
+.any-group{
+    margin-top: 20px;
+    overflow: hidden;
+}
+.any-group .item-group{
+    width: 100px;
+    float: left;
+    margin-right: 8px;
+}
+.item-group .thumbnail{
+    width: 100%;
+    height: 140px;
+}
+.item-group .item-title{
+    text-align: center;
+    margin-top: 12px;
+}
+.item-group .item-rating{
+    color: #acacac;
+    text-align: center;
+    font-size: 12px;
+}
+.item-rating img{
+    width: 10px;
+    height: 10px;
+}

@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Microsoft Ya Hei";
+
+}
+.page{
+    width: 375px;
+    height: 667px;
+    background: #d1fcff;
+}
+.page .searich-group{
+    padding: 14px 8px;
+    background: #41b357;
+}
+.page .searich-group .search-input{
+/* {# 块级元素 #} */
+    display: block;
+    height: 30px;
+    width: 100%;
+    background: #fff;
+/* {# 与盒子整体匹配 #} */
+    box-sizing: border-box;
+/* {# 搜索框不显示 #} */
+    border: none;
+/* {# 鼠标点击搜索框后不显示边框 #} */
+    outline: none;
+/* {# 边框圆角 #} */
+    border-radius: 5px;
+}
